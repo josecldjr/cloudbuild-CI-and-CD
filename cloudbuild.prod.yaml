@@ -37,7 +37,7 @@ steps:
     args: ['push', 'gcr.io/$PROJECT_ID/app_laravel:$SHORT_SHA']
 
   - id: "Ajustando arquivo de deploy"
-    name: 'gcr.io/cloud-bulders/gcloud'
+    name: 'gcr.io/cloud-builders/gcloud'
     entrypoint: '/bin/sh'
     args: 
       - '--C'
