@@ -28,5 +28,10 @@ steps:
     name: "gcr.io/cloud-builders/docker"
     args: ["exec", "-t", "app", "php", "/var/www/vendor/bin/phpunit", "-c", "/var/www/phpunit.xml"]
 
+  - id: "Construindo imagem á partir do Dockerfile.prod"
+    name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'gcr.io/$PROJECT_ID/app_laravel:$SHORT_SHA', '-f', 'Dockerfile.prod', '.']
 
-
+  - id: 'Fazendo push da imagem'
+    name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'gcr.io/$PROJECT_ID/app_laravel:$SHORT_SHA']
