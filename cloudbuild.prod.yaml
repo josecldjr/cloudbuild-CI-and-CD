@@ -40,7 +40,7 @@ steps:
     name: 'gcr.io/cloud-builders/gcloud'
     entrypoint: '/bin/sh'
     args: 
-      - '-C'
+      - '-c'
       - |
         sed 's#img-app-deployment#gcr.io/$PROJECT_ID/app_laravel:$SHORT_SHA#g' k8s/app/deployment.yaml > k8s/app/deployment-new.yaml;
         cat k8s/app/deployment-new.yaml;
